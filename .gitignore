@@ -1,0 +1,6 @@
+# FileStates / workspace internals
+.filestates/
+.plan/
+__pycache__/
+*.pyc
+.DS_Store
