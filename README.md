@@ -31,22 +31,22 @@ Every framework gets the same four-step dissection:
 
 ▶ **[交互式全景图 · Interactive Timeline](timeline.html)** — 深色时间轴，14 次跃迁一图看全，悬停展开「主流归因 vs 真实机制」+ 证明强度标签。（浏览器直接打开，或部署 GitHub Pages 后访问）
 
-| # | Framework | Year | One-line attribution (the contrarian thesis) |
-|---|-----------|------|---------------------------------------------|
-| 1 | Perceptron | 1958 | The first ceiling was set by a mathematical proof, not engineering |
-| 2 | Backpropagation | 1986 | Made learning *differentiable*, not just trainable |
-| 3 | CNN / Convolution | 1989–2012 | Wins by *learning less* — hardcoded translation invariance |
-| 4 | LSTM gating | 1997 | Its power is learning to *forget*, not to remember |
-| 5 | Distributed representations | 2013 | Proved meaning is *computable geometry* |
-| 6 | Seq2Seq + Attention | 2014 | Attention was for *alignment*; parallelism came later by accident |
-| 7 | Residual connections | 2015 | Made networks safely *shallower*, not deeper |
-| 8 | Transformer self-attention | 2017 | Turned the sequence from a *chain* into a *complete graph* |
-| 9 | Pretraining (BERT/GPT) | 2018 | The *learning objective* changed, not the model |
-| 10 | Scaling Laws | 2020 | Made capability growth *predictable* — engineering, not alchemy |
-| 11 | Diffusion | 2020–22 | Splits one hard problem into a thousand easy ones |
-| 12 | RLHF | 2022 | Makes models *obedient*, not smarter |
-| 13 | MoE sparse experts | 2023–24 | Power is in *sparsity*, not the experts |
-| 14 | Test-time compute | 2024 | The *location* of compute moved, not the model |
+| # | Framework | Year | One-line attribution (the contrarian thesis) | 📄 |
+|---|-----------|------|---------------------------------------------|-----|
+| 1 | Perceptron | 1958 | The first ceiling was set by a mathematical proof, not engineering | [→](PAPERS.md#f1) |
+| 2 | Backpropagation | 1986 | Made learning *differentiable*, not just trainable | [→](PAPERS.md#f2) |
+| 3 | CNN / Convolution | 1989–2012 | Wins by *learning less* — hardcoded translation invariance | [→](PAPERS.md#f3) |
+| 4 | LSTM gating | 1997 | Its power is learning to *forget*, not to remember | [→](PAPERS.md#f4) |
+| 5 | Distributed representations | 2013 | Proved meaning is *computable geometry* | [→](PAPERS.md#f5) |
+| 6 | Seq2Seq + Attention | 2014 | Attention was for *alignment*; parallelism came later by accident | [→](PAPERS.md#f6) |
+| 7 | Residual connections | 2015 | Made networks safely *shallower*, not deeper | [→](PAPERS.md#f7) |
+| 8 | Transformer self-attention | 2017 | Turned the sequence from a *chain* into a *complete graph* | [→](PAPERS.md#f8) |
+| 9 | Pretraining (BERT/GPT) | 2018 | The *learning objective* changed, not the model | [→](PAPERS.md#f9) |
+| 10 | Scaling Laws | 2020 | Made capability growth *predictable* — engineering, not alchemy | [→](PAPERS.md#f10) |
+| 11 | Diffusion | 2020–22 | Splits one hard problem into a thousand easy ones | [→](PAPERS.md#f11) |
+| 12 | RLHF | 2022 | Makes models *obedient*, not smarter | [→](PAPERS.md#f12) |
+| 13 | MoE sparse experts | 2023–24 | Power is in *sparsity*, not the experts | [→](PAPERS.md#f13) |
+| 14 | Test-time compute | 2024 | The *location* of compute moved, not the model | [→](PAPERS.md#f14) |
 
 See [`THE_THESES.md`](THE_THESES.md) for the full contrarian theses — each with the mainstream attribution vs. the real mechanism.
 
