@@ -57,5 +57,5 @@ See [`PAPERS.md`](PAPERS.md) for the curated reading list — 14 frameworks × 3
 - [x] 14 contrarian theses (`THE_THESES.md`)
 - [x] The big picture — AI capability-leap timeline map (`timeline.html`)
 - [x] Papers — 14 frameworks × 3–5 papers, three-question annotation (`PAPERS.md`)
-- [x] Per-framework chapters — six so far: [`01-perceptron.md`](chapters/01-perceptron.md), [`02-backpropagation.md`](chapters/02-backpropagation.md), [`03-cnn.md`](chapters/03-cnn.md), [`04-lstm.md`](chapters/04-lstm.md), [`05-embeddings.md`](chapters/05-embeddings.md), [`06-seq2seq-attention.md`](chapters/06-seq2seq-attention.md) (6/14)
+- [x] Per-framework chapters — seven so far: [`01-perceptron.md`](chapters/01-perceptron.md), [`02-backpropagation.md`](chapters/02-backpropagation.md), [`03-cnn.md`](chapters/03-cnn.md), [`04-lstm.md`](chapters/04-lstm.md), [`05-embeddings.md`](chapters/05-embeddings.md), [`06-seq2seq-attention.md`](chapters/06-seq2seq-attention.md), [`07-residual.md`](chapters/07-residual.md) (7/14)
 - [x] Reproducible ablations — 1 runnable (XOR) + curated entry points (`ABLATIONS.md`)
