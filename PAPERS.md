@@ -11,11 +11,13 @@
 
 - **The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain** — Rosenblatt (1958) · *Psychological Review* · `是什么` · 首个可学习的人工神经元模型，提出感知机学习规则。
 - **Perceptrons: An Introduction to Computational Geometry** — Minsky & Papert (1969) · MIT Press · `能力边界` · 定理级证明：单层感知机是线性分类器，无法表示 XOR，定死第一代神经网络的能力上限。
+- **Theoretical foundations of the potential function method in pattern recognition learning** — Aizerman, Braverman & Rozonoer (1964) · *Automation and Remote Control* · `特性` · 感知机的核方法前身：把线性局限经高维映射突破，预示后来的 kernel trick。
 
 ## 2. Backpropagation (1986)
 
 - **Learning representations by back-propagating errors** — Rumelhart, Hinton & Williams (1986) · *Nature* · `是什么` · 提出反向传播，让多层网络可训练，深度学习自此可微分。
 - **Learning long-term dependencies with gradient descent is difficult** — Bengio, Simard & Frasconi (1994) · *IEEE TNN* · `能力边界` · 揭示梯度消失/爆炸，为 RNN 的长程依赖缺陷给出经验与理论证据。
+- **Beyond Regression: New Tools for Prediction and Analysis in the Behavioral Sciences** — Werbos (1974) · PhD thesis, Harvard · `是什么` · 反向传播的历史前身：在博士论文中独立提出误差反向传播思想。
 
 ## 3. CNN / Convolution (1989–2012)
 
@@ -27,6 +29,7 @@
 
 - **Long Short-Term Memory** — Hochreiter & Schmidhuber (1997) · *Neural Computation* · `是什么` · 用门控单元（遗忘门/输入门）解决 RNN 梯度消失，实现长程记忆。
 - **Learning long-term dependencies with gradient descent is difficult** — Bengio et al. (1994) · *IEEE TNN* · `能力边界` · LSTM 所针对的问题本身：梯度下降难以学习长程依赖。
+- **Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation** — Cho et al. (2014) · EMNLP · `特性` · 提出 GRU，门控机制的简化变体，证明「门控」才是核心，而非 LSTM 的具体结构。
 
 ## 5. Distributed Representations / Embedding (2013)
 
@@ -38,6 +41,7 @@
 
 - **Sequence to Sequence Learning with Neural Networks** — Sutskever, Vinyals & Le (2014) · NeurIPS · `是什么` · 编码器-解码器框架，端到端序列到序列学习。
 - **Neural Machine Translation by Jointly Learning to Align and Translate** — Bahdanau, Cho & Bengio (2014) · ICLR 2015 · `特性` · 引入注意力，用软对齐替代固定长度瓶颈向量。
+- **Effective Approaches to Attention-based Neural Machine Translation** — Luong, Pham & Manning (2015) · EMNLP · `特性` · 提出全局/局部注意力与多种对齐函数，确立注意力的可复用形式。
 
 ## 7. Residual Connections (2015)
 
@@ -79,6 +83,7 @@
 
 - **Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer** — Shazeer et al. (2017) · ICLR · `是什么` · 稀疏门控 MoE 层，容量与计算解耦。
 - **Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity** — Fedus, Zoph & Shazeer (2022) · JMLR · `特性` · 用 top-1 路由 + 稀疏激活，把 MoE 做到万亿参数规模。
+- **GShard: Scaling Giant Models with Conditional Computation and Automatic Sharding** — Lepikhin et al. (2021) · ICLR · `特性` · 把稀疏 MoE 与自动分片结合，扩展至 6000 亿参数。
 
 ## 14. Test-time Compute (2024)
 
