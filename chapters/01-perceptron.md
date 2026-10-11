@@ -8,8 +8,8 @@
 
 ## 现象
 
-- 1958，Frank Rosenblatt 在《Psychological Review》发表感知机（perceptron），单层、线性阈值、有可证明的收敛定理。它能学会字母分类，媒体热炒——《纽约时报》宣称它将来能「走路、说话、看、写、自我复制」。
-- 1969，Marvin Minsky 与 Seymour Papert 出版《Perceptrons: An Introduction to Computational Geometry》。
+- 1958，Frank Rosenblatt 在《Psychological Review》发表感知机（perceptron）[1]，单层、线性阈值、有可证明的收敛定理。它能学会字母分类，媒体热炒——《纽约时报》宣称它将来能「走路、说话、看、写、自我复制」。
+- 1969，Marvin Minsky 与 Seymour Papert 出版《Perceptrons: An Introduction to Computational Geometry》[3]。
 - 1970s，联结主义（connectionism）研究衰退，第一次 AI 寒冬（约 1974–1980）到来。
 
 ## 主流归因
@@ -22,15 +22,15 @@
 
 **① 那个数学证明只针对「单层」，而且这些局限在当时早已是已知的。**
 
-Melanie Mitchell（2019，《Artificial Intelligence: A Guide for Thinking Humans》Ch.1）：
+Melanie Mitchell（2019，《Artificial Intelligence: A Guide for Thinking Humans》Ch.1）[7]：
 
 > The limitations Minsky and Papert proved for simple perceptrons were already known to people working in this area. **Frank Rosenblatt himself had done extensive work on multilayer perceptrons and recognized the difficulty of training them.**
 
-Rosenblatt 在 1962 年的《Principles of Neurodynamics》Part III（第 15–20 章）里，已经专门讨论「multi-layer and cross-coupled perceptrons」。XOR 类反例针对的「单层感知机」，从来就不是 Rosenblatt 研究的完整图景。
+Rosenblatt 在 1962 年的《Principles of Neurodynamics》[2] Part III（第 15–20 章）里，已经专门讨论「multi-layer and cross-coupled perceptrons」。XOR 类反例针对的「单层感知机」，从来就不是 Rosenblatt 研究的完整图景。
 
 **② 真正致命的是对「多层」的推测，不是定理。**
 
-Minsky & Papert 1969 原文（Ch.13, p.231–232）——注意这是一句**自我标注为直觉判断**的话：
+Minsky & Papert 1969 原文 [3]（Ch.13, p.231–232）——注意这是一句**自我标注为直觉判断**的话：
 
 > There is no reason to suppose that any of these virtues carry over to the many-layered version. Nevertheless, we consider it to be an important research problem **to elucidate (or reject) our intuitive judgment that the extension is sterile**.
 
@@ -40,7 +40,7 @@ Minsky & Papert 1969 原文（Ch.13, p.231–232）——注意这是一句**自
 
 Rosenblatt 自己都「recognized the difficulty of training them」——多层能表达 XOR（一个隐层 + 非线性就够），但 1969 年没有人知道怎么训练多层网络。
 
-Minsky & Papert 在 1988 增订版《Prologue: A View from 1988》里也亲口承认：
+Minsky & Papert 在 1988 增订版《Prologue: A View from 1988》[6] 里也亲口承认：
 
 > One popular version is that the publication of our book so discouraged research on learning in network machines that a promising line of research was interrupted. **Our version is that progress had already come to a virtual halt because of the lack of adequate basic theories.**
 
@@ -48,7 +48,7 @@ Minsky & Papert 在 1988 增订版《Prologue: A View from 1988》里也亲口�
 
 **④ 反向传播（1986）正是「回答这个挑战」。**
 
-Rumelhart, Hinton & Williams（PDP Vol.1, Ch.8, p.361）在提出 BP 时，明确把它定位成对 1969 年那本书的回应：
+Rumelhart, Hinton & Williams（PDP Vol.1, Ch.8, p.361）[5] 在提出 BP 时，明确把它定位成对 1969 年那本书的回应：
 
 > we believe that **we have answered Minsky and Papert's challenge** and have found a learning result sufficiently powerful to demonstrate that **their pessimism about learning in multilayer machines was misplaced**.
 
@@ -81,9 +81,22 @@ Rumelhart, Hinton & Williams（PDP Vol.1, Ch.8, p.361）在提出 BP 时，明�
 主流叙事里最隐蔽的错误，是把两件不同尺度的事合并了：
 
 1. **「感知机之死」** = 联结主义**支线**的衰退。Minsky & Papert 的书是重要因素，但其作用机制是对**多层可训练性**的悲观推测，不是对单层的数学证明。
-2. **「第一次 AI 寒冬」** = 整个 AI 领域（**含符号主义**）的资金收缩。主因是 Lighthill 报告（1973，英国）与 DARPA 资金转向（1974 Mansfield Amendment 后，美国）。
+2. **「第一次 AI 寒冬」** = 整个 AI 领域（**含符号主义**）的资金收缩。主因是 Lighthill 报告 [4]（1973，英国）与 DARPA 资金转向（1974 Mansfield Amendment 后，美国）。
 
 把 1 和 2 混为一谈，会得到一个方便但错误的故事：「一本数学书冻结了一个领域」。真相是：一本数学书（严格但只对单层）+ 一句悲观的直觉判断（对多层）+ 两场独立的资金政治事件，共同构成了那个十年。
+
+---
+
+## References
+
+1. Rosenblatt, F. (1958). *The Perceptron: A Probabilistic Model for Information Storage and Organization in the Brain.* Psychological Review, 65(6), 386–408. [doi:10.1037/h0042519](https://doi.org/10.1037/h0042519)
+2. Rosenblatt, F. (1962). *Principles of Neurodynamics: Perceptrons and the Theory of Brain Mechanisms.* Spartan Books. [PDF (gwern.net)](https://gwern.net/doc/ai/nn/1962-rosenblatt-principlesofneurodynamics.pdf)
+3. Minsky, M., & Papert, S. (1969). *Perceptrons: An Introduction to Computational Geometry.* MIT Press. [MIT Press](https://mitpress.mit.edu/9780262630221/perceptrons/) · [PDF](https://papers.baulab.info/papers/Minsky-1969.pdf)
+4. Lighthill, J. (1973). *Artificial Intelligence: A General Survey* (the Lighthill report). [Wikipedia](https://en.wikipedia.org/wiki/Lighthill_report)
+5. Rumelhart, D. E., Hinton, G. E., & Williams, R. J. (1986). Learning representations by back-propagating errors. *Nature*, 323(6088), 533–536. [doi:10.1038/323533a0](https://www.nature.com/articles/323533a0)
+6. Minsky, M., & Papert, S. (1988). *Perceptrons: An Introduction to Computational Geometry* (Expanded ed.). MIT Press. Prologue: “A View from 1988”. [MIT Press](https://mitpress.mit.edu/9780262631112/perceptrons/) · [Prologue](https://direct.mit.edu/books/monograph/3132/chapter/85833/Prologue-A-View-from-1988)
+7. Mitchell, M. (2019). *Artificial Intelligence: A Guide for Thinking Humans.* Farrar, Straus and Giroux. [Google Books](https://books.google.com/books/about/Artificial_Intelligence.html?id=65iEDwAAQBAJ)
+8. Quote Investigator. (2026). *(Multilayer Perceptrons) Our Intuitive Judgment That the Extension Is Sterile.* [quoteinvestigator.com](https://quoteinvestigator.com/2026/07/24/perceptron-sterile/)
 
 ---
 
