@@ -50,7 +50,7 @@ Every framework gets the same four-step dissection:
 
 See [`THE_THESES.md`](THE_THESES.md) for the full contrarian theses — each with the mainstream attribution vs. the real mechanism.
 
-See [`PAPERS.md`](PAPERS.md) for the curated reading list — 14 frameworks × 3–5 papers, annotated by three questions (what it is / its properties / its capability boundaries).
+See [`PAPERS.md`](PAPERS.md) for the curated reading list — 14 frameworks × 3–5 papers, annotated by three questions (what it is / its properties / its capability boundaries). See [`ABLATIONS.md`](ABLATIONS.md) for the reproducible ablations — one runnable XOR experiment plus curated entry points, ranked by reproduction cost.
 
 ## Status
 
@@ -58,4 +58,4 @@ See [`PAPERS.md`](PAPERS.md) for the curated reading list — 14 frameworks × 3
 - [x] The big picture — AI capability-leap timeline map (`timeline.html`)
 - [x] Papers — 14 frameworks × 3–5 papers, three-question annotation (`PAPERS.md`)
 - [ ] Per-framework chapters (full attribution chains)
-- [ ] Reproducible ablations
+- [x] Reproducible ablations — 1 runnable (XOR) + curated entry points (`ABLATIONS.md`)
