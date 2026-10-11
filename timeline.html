@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>why-models-work — AI 能力跃迁时间轴</title>
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg-card: #131a24;
+    --bg-card-hover: #1a2330;
+    --line: #2a3542;
+    --text: #e6edf3;
+    --muted: #8b98a5;
+    --accent: #7ee787;
+    --theorem: #d4a72c;
+    --empirical: #58a6ff;
+    --ablation: #f0883e;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    --mono: "SF Mono", "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 64px 24px 40px;
+    text-align: center;
+  }
+  header .kicker {
+    font-family: var(--mono);
+    color: var(--accent);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  header h1 {
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(120deg, #7ee787, #58a6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  header .tagline {
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 18px;
+  }
+  header .tagline em { color: var(--text); font-style: normal; font-weight: 600; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    justify-content: center;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+  .legend .t { color: var(--theorem); } .legend .e { color: var(--empirical); } .legend .a { color: var(--ablation); }
+  .legend .dot.t { background: var(--theorem); } .legend .dot.e { background: var(--empirical); } .legend .dot.a { background: var(--ablation); }
+
+  .timeline { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; position: relative; }
+  .timeline::before {
+    content: ""; position: absolute; left: 50%; top: 0; bottom: 0;
+    width: 2px; transform: translateX(-50%);
+    background: linear-gradient(180deg, transparent, var(--line) 5%, var(--line) 95%, transparent);
+  }
+  .item { position: relative; margin-bottom: 28px; }
+  .dot {
+    position: absolute; left: 50%; top: 26px; transform: translateX(-50%);
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--bg); border: 3px solid var(--accent);
+    z-index: 2;
+  }
+  .item .card {
+    width: calc(50% - 40px);
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 22px;
+    transition: background .2s, border-color .2s, transform .2s;
+    cursor: default;
+  }
+  .item:nth-child(odd) .card { margin-right: auto; }
+  .item:nth-child(even) .card { margin-left: auto; }
+  .item .card:hover { background: var(--bg-card-hover); border-color: #3a4756; transform: translateY(-2px); }
+
+  .year {
+    font-family: var(--mono); font-size: 12px; color: var(--muted);
+    letter-spacing: 1px; margin-bottom: 6px;
+  }
+  .title-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .title-row h3 { font-size: 20px; font-weight: 700; }
+  .badge {
+    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px;
+    letter-spacing: .5px; white-space: nowrap;
+  }
+  .badge.theorem { color: var(--theorem); background: rgba(212,167,44,.12); border: 1px solid rgba(212,167,44,.4); }
+  .badge.empirical { color: var(--empirical); background: rgba(88,166,255,.12); border: 1px solid rgba(88,166,255,.4); }
+  .badge.ablation { color: var(--ablation); background: rgba(240,136,62,.12); border: 1px solid rgba(240,136,62,.4); }
+
+  .thesis { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 12px; }
+  .thesis::before { content: "⚡ "; }
+  .detail { border-top: 1px solid var(--line); padding-top: 10px; font-size: 13.5px; }
+  .detail p { margin-bottom: 8px; }
+  .detail p:last-child { margin-bottom: 0; }
+  .detail .label { color: var(--muted); font-weight: 600; margin-right: 6px; }
+  .detail .mainstream { color: #ff7b72; }
+  .detail .real { color: var(--accent); }
+
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 24px; }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .timeline::before { left: 18px; }
+    .dot { left: 18px; }
+    .item .card { width: calc(100% - 48px); margin-left: 48px !important; margin-right: 0 !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker">Evidence-chained attribution</div>
+  <h1>why-models-work</h1>
+  <p class="tagline">Not how strong AI models are — <em>why they're strong</em>.<br>14 次能力跃迁，逐次归因解剖。</p>
+  <div class="legend">
+    <span><span class="dot t"></span><span class="t">定理级 · theorem-level</span></span>
+    <span><span class="dot e"></span><span class="e">经验规律 · empirical-law</span></span>
+    <span><span class="dot a"></span><span class="a">消融证据 · ablation-evidence</span></span>
+  </div>
+</header>
+
+<main class="timeline">
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">1958</div>
+      <div class="title-row"><h3>Perceptron</h3><span class="badge theorem">定理级</span></div>
+      <p class="thesis">第一个「天花板」，是一次数学证明定死的——不是工程不行，是结构的表达能力有硬边界。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">单层太简单、算力/数据不够，所以学不会 XOR。</span></p>
+        <p><span class="label">真实机制</span><span class="real">Minsky 用几何证明：单层感知机本质是线性分类器，决策边界只能是超平面，而 XOR 在几何上天然不可分。加再多数据也算不出。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">1986</div>
+      <div class="title-row"><h3>Backpropagation</h3><span class="badge theorem">定理级</span></div>
+      <p class="thesis">贡献不是「训练多层」，是把「学习」从调参变成了信号传播——从此深度学习是「可微」的，不是「可调」的。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">BP 让多层网络终于能训练了。</span></p>
+        <p><span class="label">真实机制</span><span class="real">链式法则让误差信号逐层分配，把黑箱调参变成梯度下降 + 可微结构。做对的是「把学习定义为可微分」。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">1989–2012</div>
+      <div class="title-row"><h3>CNN / Convolution</h3><span class="badge ablation">消融证据</span></div>
+      <p class="thesis">强不是因为「模仿人脑」，是把「平移不变性」这个物理先验硬编码进结构——它赢在「少学」，不在「多学」。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">卷积模仿视觉皮层，所以强。</span></p>
+        <p><span class="label">真实机制</span><span class="real">权值共享 + 局部感受野 = 平移等变性 + 参数效率，用先验换来了样本效率的指数级提升。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">1997</div>
+      <div class="title-row"><h3>LSTM Gating</h3><span class="badge ablation">消融证据</span></div>
+      <p class="thesis">能力不是「记住了」，是「学会了忘」——门控的本质是让模型自己决定哪条信息该断流。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">LSTM 用「记忆单元」解决了长期依赖。</span></p>
+        <p><span class="label">真实机制</span><span class="real">门控让梯度可以「选择性通过」，绕开梯度消失/爆炸，给梯度修了一条高速公路。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">2013</div>
+      <div class="title-row"><h3>Distributed Representations</h3><span class="badge empirical">经验规律</span></div>
+      <p class="thesis">震惊不是「词有了向量」，是「语义竟然可以被加减」——它证明了「意义」是可运算的几何对象。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">embedding 让词有了语义。</span></p>
+        <p><span class="label">真实机制</span><span class="real">「国王−男人+女人≈王后」不是巧合，是「语义=空间几何」这个假设成立——把离散符号映射到连续空间，让类比变成向量运算。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">2014</div>
+      <div class="title-row"><h3>Seq2Seq + Attention</h3><span class="badge ablation">消融证据</span></div>
+      <p class="thesis">第一版不是为「并行」设计的，是为「对齐」——用「软寻址」替代了「固定压缩」，后来才阴差阳错成了并行神器。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">attention 让机器翻译对齐了。</span></p>
+        <p><span class="label">真实机制</span><span class="real">动态权重让每个输出「重新加权所有输入」，解决固定长度瓶颈向量的压缩瓶颈；把对齐从离散决策变成可微的软寻址。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">2015</div>
+      <div class="title-row"><h3>Residual Connections</h3><span class="badge ablation">消融证据</span></div>
+      <p class="thesis">突破不是「让网络更深」，是「让网络可以安全地变浅」——残差让每一层「默认什么都不做」，深度才不再致命。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">ResNet 让网络更深了。</span></p>
+        <p><span class="label">真实机制</span><span class="real">恒等映射的捷径让梯度无损直达，网络默认学恒等、只学残差，把「深层退化」变成「梯度流」问题。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">2017</div>
+      <div class="title-row"><h3>Transformer Self-Attention</h3><span class="badge ablation">消融证据</span></div>
+      <p class="thesis">强不是「注意力」，是「把序列从一条链变成了一张完全图」——信息传播路径从 O(n) 变成了 O(1)。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">Transformer 因为「并行 + 注意力」所以强。</span></p>
+        <p><span class="label">真实机制</span><span class="real">去掉递归，用位置编码 + 自注意力实现任意两点 O(1) 互通，同时解决并行和长程依赖。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">2018</div>
+      <div class="title-row"><h3>Pretraining (BERT/GPT)</h3><span class="badge empirical">经验规律</span></div>
+      <p class="thesis">跃迁不是「模型变强了」，是「学习目标变了」——从「学任务」到「学语言本身」，通用性才爆炸。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">预训练 + 微调让 NLP 起飞。</span></p>
+        <p><span class="label">真实机制</span><span class="real">先在海量无标注数据上学通用语言结构，再微调到具体任务，用「通用数据富余」解决「任务数据稀缺」。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">2020</div>
+      <div class="title-row"><h3>Scaling Laws</h3><span class="badge empirical">经验规律</span></div>
+      <p class="thesis">最重要的不是「越大越好」，是「能力增长是可预测的」——把 AI 从炼丹变成工程，让「砸钱」有了数学依据。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">scaling law 说明「越大越好」。</span></p>
+        <p><span class="label">真实机制</span><span class="real">能力随算力/数据/参数呈幂律增长且可外推，证明「量变可以预测质变」。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">2020–22</div>
+      <div class="title-row"><h3>Diffusion</h3><span class="badge theorem">定理级</span></div>
+      <p class="thesis">巧不是「去噪」，是「把一次『画完整张图』的难题，拆成一千步『擦掉一点噪声』的易题」——赢在把难问题变简单。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">diffusion 用「加噪去噪」生成图片。</span></p>
+        <p><span class="label">真实机制</span><span class="real">把生成变成逐步去噪的马尔可夫链，用多步小变换替代一步大变换，让每个子问题都可学习（score-based 有数学框架）。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">2022</div>
+      <div class="title-row"><h3>RLHF</h3><span class="badge ablation">消融证据</span></div>
+      <p class="thesis">贡献不是「让模型更聪明」，是「让模型更听话」——它优化的是「偏好」，不是「能力」。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">RLHF 让模型「对齐人类」。</span></p>
+        <p><span class="label">真实机制</span><span class="real">用人类偏好训练奖励模型，再用 RL 优化，把「人类价值」编码成可优化的信号。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">2023–24</div>
+      <div class="title-row"><h3>MoE Sparse Experts</h3><span class="badge empirical">经验规律</span></div>
+      <p class="thesis">精髓不是「多个专家」，是「稀疏」——它证明了模型可以「大而不贵」，关键是「用得少」。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">MoE 用「多个专家」提升容量。</span></p>
+        <p><span class="label">真实机制</span><span class="real">稀疏激活每次只用一小部分参数，总容量大但计算量小，把「容量」和「计算」解耦。</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="item"><div class="dot"></div>
+    <div class="card">
+      <div class="year">2024</div>
+      <div class="title-row"><h3>Test-time Compute</h3><span class="badge empirical">经验规律</span></div>
+      <p class="thesis">跃迁不是「模型变聪明了」，是「算力的位置变了」——从『训练时多算』到『推理时多算』，打开了一个新的 scaling 维度。</p>
+      <div class="detail">
+        <p><span class="label">主流归因</span><span class="mainstream">R1/o1 用 RL 学会了「思考」。</span></p>
+        <p><span class="label">真实机制</span><span class="real">把算力从训练阶段挪到推理阶段，让模型在回答前「多算一会」，发现「思考时间」是另一个可 scale 的维度。</span></p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <a href="https://github.com/JuliaHZhu/why-models-work">github.com/JuliaHZhu/why-models-work</a>
+  &nbsp;·&nbsp; 现象 → 主流归因 → 真实机制 → 证据/证明
+</footer>
+
+</body>
+</html>

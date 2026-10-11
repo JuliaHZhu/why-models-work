@@ -29,6 +29,8 @@ Every framework gets the same four-step dissection:
 
 ## The Map — 14 Capability Leaps
 
+▶ **[交互式全景图 · Interactive Timeline](timeline.html)** — 深色时间轴，14 次跃迁一图看全，悬停展开「主流归因 vs 真实机制」+ 证明强度标签。（浏览器直接打开，或部署 GitHub Pages 后访问）
+
 | # | Framework | Year | One-line attribution (the contrarian thesis) |
 |---|-----------|------|---------------------------------------------|
 | 1 | Perceptron | 1958 | The first ceiling was set by a mathematical proof, not engineering |
@@ -51,6 +53,6 @@ See [`THE_THESES.md`](THE_THESES.md) for the full contrarian theses — each wit
 ## Status
 
 - [x] 14 contrarian theses (`THE_THESES.md`)
-- [ ] The big picture — AI capability-leap timeline map
+- [x] The big picture — AI capability-leap timeline map (`timeline.html`)
 - [ ] Per-framework chapters (full attribution chains)
 - [ ] Reproducible ablations
