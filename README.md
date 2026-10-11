@@ -1,7 +1,7 @@
 # why-models-work
 
 > **Not how strong AI models are — *why* they're strong.**
-> Evidence-chained attribution of every major capability leap in model frameworks.
+> Exploring the evidence of model leaps — evidence-chained attribution of every major capability leap in model frameworks.
 
 The mainstream asks *how strong* (benchmarks, leaderboards). This repo asks *why strong* — and answers with an attribution chain for every major capability leap in AI history:
 
