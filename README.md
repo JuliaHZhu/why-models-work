@@ -27,6 +27,13 @@ Every framework gets the same four-step dissection:
 | `经验规律` empirical-law | Scaling laws & measurable regularities |
 | `消融证据` ablation-evidence | Causal experiments |
 
+**Maturity labels** (second axis — how *settled* a claim is, alongside how *strong* the proof is):
+
+| Label | Meaning |
+|-------|---------|
+| `成熟` settled | Evidence chain closed, in textbooks, multi-team reproduced — the 14 leaps below |
+| `前沿` frontier | Fresh, single-team, not yet time-tested — see [`FRONTIER.md`](FRONTIER.md) |
+
 ## The Map — 14 Capability Leaps
 
 ▶ **[交互式全景图 · Interactive Timeline](timeline.html)** — 深色时间轴，14 次跃迁一图看全，悬停展开「主流归因 vs 真实机制」+ 证明强度标签。（浏览器直接打开，或部署 GitHub Pages 后访问）
@@ -47,6 +54,10 @@ Every framework gets the same four-step dissection:
 | 12 | RLHF | 2022 | Makes models *obedient*, not smarter | [→](PAPERS.md#f12) |
 | 13 | MoE sparse experts | 2023–24 | Power is in *sparsity*, not the experts | [→](PAPERS.md#f13) |
 | 14 | Test-time compute | 2024 | The *location* of compute moved, not the model | [→](PAPERS.md#f14) |
+
+## Frontier — 前沿观察（尚未验证）
+
+See [`FRONTIER.md`](FRONTIER.md) — technologies that look promising but are **not yet settled**. Kept separate from the 14 settled leaps so unproven claims never read like established history. Current entry: **CLM-8B** — a contrastive "System One" model (8B) that matches Jev on agent tasks with up to 9× lower latency, targeting the *small-model / low-cost / high-stability* direction.
 
 See [`THE_THESES.md`](THE_THESES.md) for the full contrarian theses — each with the mainstream attribution vs. the real mechanism.
 
